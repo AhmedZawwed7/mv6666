@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Creek View – Mountain View Egypt</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --teal:#1a8a8a;--teal-dark:#0f5f5f;--teal-deep:#0a3d3d;
+  --teal-light:#5bbcbc;--teal-pale:#a8dcdc;--teal-glow:#2ab8b8;
+  --bg-dark:#061818;--bg-mid:#0c2828;--bg-section:#082020;
+  --white:#fff;--off-white:#e8f5f5;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Cairo',sans-serif;background:var(--bg-dark);color:var(--off-white);overflow-x:hidden}
+
+.page{display:none;min-height:100vh}
+.page.active{display:block}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:10px 48px;background:rgba(6,24,24,.95);backdrop-filter:blur(18px);border-bottom:1px solid rgba(26,138,138,.25)}
+.nav-logo{display:flex;align-items:center;gap:14px}
+.mv-logo-img{height:40px;width:auto}
+.nav-divider{width:1px;height:28px;background:rgba(91,188,188,.3)}
+.nav-project-name{font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--teal-light)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:13px;letter-spacing:.04em;color:var(--teal-pale);text-decoration:none;transition:color .2s;font-weight:500}
+.nav-links a:hover{color:#fff}
+.nav-cta{display:flex;align-items:center;gap:10px}
+.nav-btn{padding:9px 22px;border-radius:3px;font-size:13px;font-family:'Cairo',sans-serif;font-weight:600;text-decoration:none;transition:all .3s;cursor:pointer;border:none}
+.nav-btn-outline{border:1px solid rgba(91,188,188,.45)!important;color:var(--teal-pale);background:transparent}
+.nav-btn-outline:hover{background:rgba(26,138,138,.15);border-color:var(--teal-light)!important}
+.nav-btn-solid{background:var(--teal);color:#fff}
+.nav-btn-solid:hover{background:var(--teal-glow)}
+
+/* HERO */
+.hero{position:relative;height:100vh;min-height:680px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_6_923d85d2a9.webp') center/cover no-repeat;animation:zoomIn 14s ease-out forwards}
+@keyframes zoomIn{from{transform:scale(1.07)}to{transform:scale(1)}}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,24,24,.97) 0%,rgba(6,24,24,.55) 45%,rgba(6,24,24,.18) 100%)}
+.hero-content{position:relative;z-index:2;padding:0 80px 56px;animation:fadeUp 1.2s .3s both;text-align:right}
+@keyframes fadeUp{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:translateY(0)}}
+.hero-eyebrow{font-size:12px;letter-spacing:.1em;color:var(--teal-glow);margin-bottom:14px;font-weight:600}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(80px,12vw,152px);font-weight:300;line-height:.85;color:#fff;margin-bottom:26px;direction:ltr;text-align:right}
+.hero-title em{display:block;font-style:normal;background:linear-gradient(90deg,var(--teal-light),#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-desc{font-size:15px;font-weight:400;color:var(--teal-pale);max-width:540px;line-height:2;margin-bottom:38px;margin-right:0;margin-left:auto}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:flex-end}
+.btn-p{display:inline-flex;align-items:center;gap:10px;background:var(--teal);color:#fff;padding:15px 36px;border-radius:3px;font-size:14px;font-weight:700;text-decoration:none;transition:all .3s;box-shadow:0 4px 22px rgba(26,138,138,.4);font-family:'Cairo',sans-serif;cursor:pointer;border:none}
+.btn-p:hover{background:var(--teal-glow);transform:translateY(-2px)}
+.btn-o{display:inline-flex;align-items:center;gap:10px;background:transparent;color:var(--off-white);padding:15px 36px;border-radius:3px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid rgba(91,188,188,.45);transition:all .3s;font-family:'Cairo',sans-serif;cursor:pointer}
+.btn-o:hover{border-color:var(--teal-light);background:rgba(26,138,138,.12)}
+
+.stats-bar{position:relative;z-index:2;display:flex;background:rgba(6,24,24,.88);backdrop-filter:blur(14px);border-top:1px solid rgba(26,138,138,.2);padding:0 80px;justify-content:flex-end}
+.stat{padding:26px 0 26px 48px;margin-left:48px;border-left:1px solid rgba(26,138,138,.2);text-align:center}
+.stat:last-child{border-left:none;padding-left:0;margin-left:0}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;line-height:1;background:linear-gradient(135deg,#fff,var(--teal-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block}
+.stat-l{font-size:11px;color:var(--teal-light);font-weight:600;letter-spacing:.06em}
+
+.s-label{font-size:12px;letter-spacing:.1em;color:var(--teal-glow);margin-bottom:14px;display:block;font-weight:700}
+.s-title{font-family:'Cairo',sans-serif;font-size:clamp(30px,4vw,54px);font-weight:800;line-height:1.15;color:#fff;margin-bottom:20px}
+.s-body{font-size:15px;line-height:2;color:var(--teal-pale);font-weight:400}
+.teal-line{width:48px;height:3px;background:linear-gradient(90deg,var(--teal-glow),var(--teal-light));margin-bottom:24px;border-radius:2px}
+.divider{width:100%;height:1px;background:linear-gradient(to right,transparent,rgba(26,138,138,.35),transparent)}
+
+.intro{padding:120px 80px;background:var(--bg-dark)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.img-frame{position:relative;overflow:hidden;border-radius:4px;box-shadow:0 32px 90px rgba(0,0,0,.65),0 0 0 1px rgba(26,138,138,.15)}
+.img-frame img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .9s}
+.img-frame:hover img{transform:scale(1.04)}
+.img-frame::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(135deg,rgba(26,138,138,.18),transparent 55%);pointer-events:none}
+.aspect-45{aspect-ratio:4/5}
+
+.feature-strip{background:var(--bg-mid);padding:80px}
+.feature-strip-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(26,138,138,.15);margin-top:56px;border:1px solid rgba(26,138,138,.15);border-radius:4px;overflow:hidden}
+.feature-card{background:var(--bg-mid);padding:42px 32px;transition:background .3s}
+.feature-card:hover{background:rgba(26,138,138,.08)}
+.feature-icon{width:44px;height:44px;margin-bottom:20px;color:var(--teal-glow)}
+.feature-card h3{font-size:19px;font-weight:700;color:#fff;margin-bottom:10px}
+.feature-card p{font-size:13px;color:var(--teal-pale);line-height:1.9}
+
+.exp-section{padding:120px 80px;background:var(--bg-section)}
+.exp-header{margin-bottom:60px}
+.exp-big-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.exp-tall{position:relative;overflow:hidden;border-radius:4px;min-height:680px;box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.exp-tall img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s}
+.exp-tall:hover img{transform:scale(1.04)}
+.exp-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,24,24,.92) 0%,transparent 52%);z-index:1}
+.exp-info{position:absolute;bottom:0;left:0;right:0;padding:34px;z-index:2;text-align:right}
+.exp-num{font-size:11px;letter-spacing:.1em;color:var(--teal-glow);margin-bottom:8px;font-weight:700}
+.exp-info h3{font-size:26px;font-weight:800;color:#fff;margin-bottom:10px}
+.exp-info p{font-size:13px;color:var(--teal-pale);line-height:1.85}
+.exp-short{position:relative;overflow:hidden;border-radius:4px;min-height:318px;box-shadow:0 16px 40px rgba(0,0,0,.4)}
+.exp-short img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s}
+.exp-short:hover img{transform:scale(1.04)}
+
+.mosaic{padding:100px 80px;background:var(--bg-dark)}
+.mosaic-hd{margin-bottom:52px}
+.mosaic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.mosaic-item{overflow:hidden;border-radius:4px;box-shadow:0 8px 30px rgba(0,0,0,.45);cursor:pointer}
+.mosaic-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s}
+.mosaic-item:hover img{transform:scale(1.06)}
+.mosaic-big{grid-column:span 2;aspect-ratio:16/9}
+.mosaic-sq{aspect-ratio:1/1}
+.mosaic-wide{grid-column:span 2}
+.mosaic-norm{aspect-ratio:4/3}
+
+.lifestyle{position:relative;height:600px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.lifestyle-bg{position:absolute;inset:0;background:url('https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_3_884687dd46.webp') center/cover no-repeat;transform:scale(1.08)}
+.lifestyle-overlay{position:absolute;inset:0;background:rgba(6,24,24,.72)}
+.lifestyle-content{position:relative;z-index:2;text-align:center;max-width:820px;padding:0 40px}
+.lifestyle-content .s-title{font-size:clamp(34px,6vw,76px);margin-bottom:18px}
+.lifestyle-content .s-body{margin:0 auto;max-width:560px;font-size:16px}
+.pull-quote{display:block;font-size:clamp(18px,2.2vw,28px);font-weight:700;color:var(--teal-light);margin:26px 0;line-height:1.5}
+
+.amenities{padding:120px 80px;background:var(--bg-mid)}
+.amenities-header{text-align:center;margin-bottom:60px}
+.amen-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.amen-card{position:relative;overflow:hidden;border-radius:4px;aspect-ratio:4/3;box-shadow:0 12px 40px rgba(0,0,0,.5)}
+.amen-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s}
+.amen-card:hover img{transform:scale(1.07)}
+.amen-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,24,24,.9) 0%,transparent 60%)}
+.amen-label{position:absolute;bottom:0;left:0;right:0;padding:22px;z-index:2;text-align:right}
+.amen-label h3{font-size:19px;color:#fff;font-weight:800;margin-bottom:4px}
+.amen-label p{font-size:12px;color:var(--teal-pale)}
+.amen-card-wide{grid-column:span 2}
+
+.units{padding:120px 80px;background:var(--bg-dark)}
+.units-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:60px}
+.unit-card{background:rgba(26,138,138,.05);border:1px solid rgba(26,138,138,.18);border-radius:4px;overflow:hidden;transition:all .3s}
+.unit-card:hover{border-color:var(--teal);transform:translateY(-4px);box-shadow:0 18px 55px rgba(26,138,138,.22)}
+.unit-img{height:230px;overflow:hidden}
+.unit-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s}
+.unit-card:hover .unit-img img{transform:scale(1.06)}
+.unit-body{padding:26px 26px 30px;text-align:right}
+.unit-tag{font-size:11px;color:var(--teal-glow);margin-bottom:8px;font-weight:700;letter-spacing:.06em}
+.unit-body h3{font-size:21px;color:#fff;margin-bottom:10px;font-weight:800}
+.unit-body p{font-size:13px;color:var(--teal-pale);line-height:1.9;margin-bottom:18px}
+.unit-specs{display:flex;gap:20px;border-top:1px solid rgba(26,138,138,.18);padding-top:16px;justify-content:flex-end}
+.spec{font-size:11px;color:var(--teal-light);text-align:center}
+.spec strong{display:block;font-size:17px;font-family:'Cormorant Garamond',serif;color:#fff;font-weight:400}
+
+.gallery{padding:90px 0;background:var(--bg-section);overflow:hidden}
+.gallery-hd{margin-bottom:36px;padding:0 80px;text-align:right}
+.track-wrap{overflow:hidden}
+.track{display:flex;gap:16px;animation:scroll 45s linear infinite;width:max-content}
+.track:hover{animation-play-state:paused}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.gitem{width:460px;height:300px;flex-shrink:0;overflow:hidden;border-radius:4px;cursor:pointer;box-shadow:0 8px 32px rgba(0,0,0,.4)}
+.gitem img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.gitem:hover img{transform:scale(1.07)}
+
+.masterplan{background:var(--bg-mid);padding:100px 80px}
+.masterplan-hd{text-align:center;margin-bottom:48px}
+.map-img{width:100%;max-width:1060px;margin:0 auto;display:block;border-radius:4px;border:1px solid rgba(26,138,138,.2);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+
+.register{position:relative;overflow:hidden;min-height:620px;display:flex}
+.reg-bg{position:absolute;inset:0;background:url('https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_5_8bc76f36cf.webp') center/cover no-repeat}
+.reg-ov{position:absolute;inset:0;background:linear-gradient(to left,rgba(6,24,24,.97) 42%,rgba(6,24,24,.28) 100%)}
+.reg-content{position:relative;z-index:2;padding:100px 80px;max-width:640px;margin-right:0;margin-left:auto;text-align:right}
+.reg-form{display:flex;flex-direction:column;gap:13px;margin-top:34px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.field{background:rgba(26,138,138,.08);border:1px solid rgba(26,138,138,.25);color:var(--off-white);padding:14px 18px;border-radius:3px;font-family:'Cairo',sans-serif;font-size:14px;outline:none;transition:border-color .3s;width:100%;text-align:right}
+.field::placeholder{color:rgba(168,220,220,.35)}
+.field:focus{border-color:var(--teal-glow);background:rgba(26,138,138,.12)}
+select.field option{background:#0c2828}
+.submit-btn{background:var(--teal);color:#fff;border:none;padding:16px 44px;font-family:'Cairo',sans-serif;font-size:15px;font-weight:700;border-radius:3px;cursor:pointer;transition:all .3s;align-self:flex-start;box-shadow:0 4px 24px rgba(26,138,138,.38)}
+.submit-btn:hover{background:var(--teal-glow);transform:translateY(-2px)}
+.submit-btn:disabled{opacity:.7;cursor:not-allowed;transform:none}
+
+.contact-bar{background:var(--teal-deep);padding:60px 80px}
+.cb-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;align-items:center}
+.cb-item{display:flex;align-items:center;gap:14px;flex-direction:row-reverse}
+.cb-icon{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.09);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--teal-light)}
+.cb-icon svg{width:20px;height:20px}
+.cb-text{text-align:right}
+.cb-text h4{font-size:11px;color:var(--teal-light);margin-bottom:4px;font-weight:700;letter-spacing:.05em}
+.cb-text a,.cb-text p{font-size:15px;color:#fff;text-decoration:none;font-weight:600;transition:color .2s}
+.cb-text a:hover{color:var(--teal-pale)}
+
+footer{background:#030e0e;padding:80px 80px 36px;border-top:1px solid rgba(26,138,138,.15)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:56px}
+.footer-brand p{font-size:13px;color:var(--teal-pale);line-height:2;font-weight:400;max-width:260px;margin-top:16px;text-align:right}
+.footer-col{text-align:right}
+.footer-col h4{font-size:11px;color:var(--teal-glow);margin-bottom:16px;font-weight:700;letter-spacing:.06em}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col ul a{font-size:13px;color:var(--teal-pale);text-decoration:none;transition:color .2s}
+.footer-col ul a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(26,138,138,.12);padding-top:24px;display:flex;justify-content:space-between;align-items:center}
+.footer-bottom p,.footer-bottom a{font-size:12px;color:rgba(168,220,220,.38);text-decoration:none}
+.footer-bottom a:hover{color:#fff}
+
+.float{position:fixed;bottom:26px;left:26px;z-index:200;display:flex;flex-direction:column;gap:11px;align-items:flex-start}
+.float-btn{display:inline-flex;align-items:center;gap:9px;padding:12px 20px;border-radius:50px;font-family:'Cairo',sans-serif;font-size:13px;font-weight:700;text-decoration:none;transition:all .3s;box-shadow:0 6px 28px rgba(0,0,0,.45);cursor:pointer;border:none}
+.f-ph{background:var(--teal);color:#fff}.f-ph:hover{background:var(--teal-glow);transform:translateY(-2px)}
+.f-wa{background:#25D366;color:#fff}.f-wa:hover{background:#1ebe5a;transform:translateY(-2px)}
+
+.reveal{opacity:0;transform:translateY(44px);transition:opacity .9s ease,transform .9s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ── THANK YOU PAGE ── */
+#thankyou-page{background:var(--bg-dark);display:none;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;text-align:center;padding:0;position:relative;overflow:hidden}
+#thankyou-page.active{display:flex}
+.ty-bg{position:absolute;inset:0;background:url('https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_6_923d85d2a9.webp') center/cover no-repeat;opacity:.1;pointer-events:none}
+.ty-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(6,24,24,.95),rgba(10,61,61,.8));pointer-events:none}
+.ty-content{position:relative;z-index:2;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 24px 60px;min-height:100vh}
+.ty-card{max-width:640px;width:100%;background:rgba(12,40,40,.8);border:1px solid rgba(26,138,138,.3);border-radius:8px;padding:56px 52px;backdrop-filter:blur(24px);box-shadow:0 40px 100px rgba(0,0,0,.6)}
+.ty-logo-wrap{margin-bottom:32px;display:flex;justify-content:center}
+.ty-logo-wrap img{height:48px;width:auto;filter:brightness(1.1)}
+.ty-check{width:80px;height:80px;background:linear-gradient(135deg,var(--teal),var(--teal-glow));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 28px;box-shadow:0 8px 32px rgba(26,138,138,.5);animation:pop .6s .2s both}
+@keyframes pop{0%{transform:scale(0);opacity:0}70%{transform:scale(1.1)}100%{transform:scale(1);opacity:1}}
+.ty-check svg{width:40px;height:40px;color:#fff}
+.ty-badge{display:inline-block;background:rgba(26,138,138,.15);border:1px solid rgba(26,138,138,.35);color:var(--teal-glow);font-size:11px;font-weight:700;letter-spacing:.08em;padding:5px 14px;border-radius:20px;margin-bottom:16px}
+.ty-title{font-family:'Cairo',sans-serif;font-size:36px;font-weight:800;color:#fff;margin-bottom:10px;line-height:1.2}
+.ty-subtitle{font-size:15px;color:var(--teal-light);font-weight:600;margin-bottom:18px}
+.ty-body{font-size:14px;color:var(--teal-pale);line-height:2.1;margin-bottom:30px}
+.ty-info-box{background:rgba(26,138,138,.08);border:1px solid rgba(26,138,138,.22);border-radius:6px;padding:20px 24px;margin-bottom:32px;text-align:right}
+.ty-info-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(26,138,138,.12)}
+.ty-info-row:last-child{border-bottom:none;padding-bottom:0}
+.ty-info-row:first-child{padding-top:0}
+.ty-info-key{font-size:11px;color:var(--teal-light);font-weight:700;letter-spacing:.04em}
+.ty-info-val{font-size:13px;color:#fff;font-weight:600}
+.ty-promise{display:flex;align-items:center;gap:10px;background:rgba(42,184,184,.08);border-radius:6px;padding:14px 18px;margin-bottom:30px;justify-content:center}
+.ty-promise svg{width:18px;height:18px;color:var(--teal-glow);flex-shrink:0}
+.ty-promise p{font-size:13px;color:var(--teal-pale);line-height:1.6}
+.ty-promise strong{color:var(--teal-light)}
+.ty-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.ty-back{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#fff;padding:13px 28px;border-radius:3px;font-family:'Cairo',sans-serif;font-size:14px;font-weight:700;text-decoration:none;transition:all .3s;cursor:pointer;border:none;box-shadow:0 4px 20px rgba(26,138,138,.35)}
+.ty-back:hover{background:var(--teal-glow);transform:translateY(-2px)}
+.ty-wa{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:13px 28px;border-radius:3px;font-family:'Cairo',sans-serif;font-size:14px;font-weight:700;text-decoration:none;transition:all .3s;box-shadow:0 4px 18px rgba(37,211,102,.3)}
+.ty-wa:hover{background:#1ebe5a;transform:translateY(-2px)}
+
+@media(max-width:960px){
+  nav{padding:10px 16px}.nav-links{display:none}
+  .hero-content{padding:0 20px 46px}
+  .stats-bar{padding:0 16px;flex-wrap:wrap;justify-content:flex-start}
+  .stat{padding:12px 0 12px 16px;margin-left:16px}
+  .intro,.exp-section,.mosaic,.amenities,.units,.gallery-hd,.masterplan,.register,.contact-bar,.feature-strip{padding-left:20px;padding-right:20px}
+  footer{padding:48px 20px 28px}
+  .split,.exp-big-grid,.units-grid,.cb-inner,.feature-strip-grid{grid-template-columns:1fr}
+  .amen-grid{grid-template-columns:1fr}.amen-card-wide{grid-column:span 1}
+  .form-row{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr 1fr;gap:28px}
+  .lifestyle{height:420px}
+  .reg-content{padding:60px 20px}
+  .mosaic-big,.mosaic-wide{grid-column:span 1}
+  .ty-card{padding:36px 22px}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════
+     MAIN PAGE
+══════════════════════ -->
+<div id="main-page" class="page active">
+
+<nav>
+  <div class="nav-logo">
+    <!-- Official Mountain View Egypt logo from CDN -->
+    <img class="mv-logo-img"
+         src="https://admin.mountainviewegypt.com/uploads/MV_Logo_White_72ad1e3de1.svg"
+         alt="Mountain View Egypt"
+         onerror="this.onerror=null;this.src='https://mountainviewegypt.com/assets/images/logo-white.svg'"/>
+    <div class="nav-divider"></div>
+    <span class="nav-project-name">CREEK VIEW</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#intro">نظرة عامة</a></li>
+    <li><a href="#experiences">التجارب</a></li>
+    <li><a href="#mosaic">الصور</a></li>
+    <li><a href="#amenities">المرافق</a></li>
+    <li><a href="#units">الوحدات</a></li>
+    <li><a href="#masterplan">الموقع</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="tel:01095453622" class="nav-btn nav-btn-outline">01095453622</a>
+    <button onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'})" class="nav-btn nav-btn-solid">سجّل اهتمامك</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">ماونتن فيو مصر · القاهرة الجديدة · 2026</div>
+    <h1 class="hero-title"><em>Creek View</em></h1>
+    <p class="hero-desc">وجهة جديدة مشكّلة بالكامل حول تجارب الكريك والمساحات الطبيعية، تجمع بين الحياة العصرية ومنظومة ذكية متكاملة على مساحة 119 فداناً في قلب القاهرة الجديدة.</p>
+    <div class="hero-btns">
+      <button onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'})" class="btn-p">سجّل اهتمامك</button>
+      <button onclick="document.getElementById('mosaic').scrollIntoView({behavior:'smooth'})" class="btn-o">استكشف الصور</button>
+    </div>
+  </div>
+  <div class="stats-bar">
+    <div class="stat"><span class="stat-n">119</span><span class="stat-l">فدان</span></div>
+    <div class="stat"><span class="stat-n">3</span><span class="stat-l">تجارب مميزة</span></div>
+    <div class="stat"><span class="stat-n">التجمع 5</span><span class="stat-l">الموقع</span></div>
+    <div class="stat"><span class="stat-n">2026</span><span class="stat-l">الإطلاق</span></div>
+    <div class="stat"><span class="stat-n">+500</span><span class="stat-l">وحدة سكنية</span></div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro reveal" id="intro">
+  <div class="split">
+    <div class="img-frame aspect-45">
+      <img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_4_46706eb94f.webp" alt="Creek View" loading="lazy"/>
+    </div>
+    <div>
+      <div class="teal-line"></div>
+      <span class="s-label">٠١ — أسلوب حياة جديد</span>
+      <h2 class="s-title">الحياة تتدفق بجمال من كل زاوية</h2>
+      <p class="s-body">من البيئة الهادئة المحيطة بالمياه إلى الوجهات الحيوية المتصلة، كل تفصيلة في Creek View مصممة لتجعل الحياة تسير بانسيابية وطبيعية. مشكّل حول الطبيعة والحركة والانفتاح — هذا فصل جديد لحياة القاهرة الجديدة.</p>
+      <br/>
+      <p class="s-body">Creek View يقدم أسلوب حياة سلس حيث الطبيعة في مركز كل شيء. تمشَ على ضفاف الكريك صباحاً، اجتمع مع جيرانك عند الغروب، وعُد لمنزل يشعرك بالأمان الحقيقي.</p>
+      <br/>
+      <a href="https://mountainviewegypt.com/projects" target="_blank" rel="noopener" class="btn-o" style="display:inline-flex;margin-top:10px">اكتشف المزيد عن ماونتن فيو</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FEATURES -->
+<section class="feature-strip reveal">
+  <span class="s-label" style="text-align:right">٠٢ — لماذا Creek View</span>
+  <h2 class="s-title" style="text-align:right">مصمم لأرقى مستويات المعيشة</h2>
+  <div class="feature-strip-grid">
+    <div class="feature-card" style="text-align:right">
+      <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+      <h3>منازل على ضفاف الكريك</h3>
+      <p>كل وحدة سكنية تتمتع بإطلالة مباشرة أو مؤطرة على الكريك مع مساحات خارجية خاصة مصممة على حافة المياه.</p>
+    </div>
+    <div class="feature-card" style="text-align:right">
+      <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      <h3>منظومة ذكية متكاملة</h3>
+      <p>تقنيات المنزل الذكي وأنظمة إدارة المجتمع المتكاملة تربط كل ركن في Creek View بسلاسة تامة.</p>
+    </div>
+    <div class="feature-card" style="text-align:right">
+      <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+      <h3>ممرات خضراء</h3>
+      <p>ممرات خضراء منسقة ومسارات للمشاة تتخلل المجتمع بالكامل، تربط كل حي بالطبيعة المحيطة.</p>
+    </div>
+    <div class="feature-card" style="text-align:right">
+      <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+      <h3>مجتمع حيوي</h3>
+      <p>واجهة مائية اجتماعية ونوادي مجتمعية وتجزئة تجارية مختارة بعناية تخلق وجهة للعيش لا مجرد حي سكني.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXPERIENCES -->
+<section class="exp-section reveal" id="experiences">
+  <div class="exp-header">
+    <span class="s-label">٠٣ — ثلاث تجارب</span>
+    <h2 class="s-title">ثلاث تجارب، وجهة واحدة على ضفاف الكريك</h2>
+    <p class="s-body">كل منطقة لها إيقاعها الخاص وشخصيتها المميزة — معاً يشكّلون عالماً متكاملاً.</p>
+  </div>
+  <div class="exp-big-grid">
+    <div class="exp-tall">
+      <img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_7_f366ffe96b.webp" alt="الواجهة الاجتماعية" loading="lazy"/>
+      <div class="exp-overlay"></div>
+      <div class="exp-info">
+        <div class="exp-num">التجربة ٠١</div>
+        <h3>الواجهة الاجتماعية</h3>
+        <p>أجواء واجهة مائية نابضة تجمع المجتمع والثقافة والمطاعم والكريك في توازن رائع.</p>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <div class="exp-short">
+        <img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_5_8bc76f36cf.webp" alt="الحياة النشطة" loading="lazy"/>
+        <div class="exp-overlay"></div>
+        <div class="exp-info">
+          <div class="exp-num">التجربة ٠٢</div>
+          <h3>الحياة النشطة على الكريك</h3>
+          <p>مساحات ديناميكية للحركة والرياضة ومسارات الدراجات وأسلوب حياة نشط.</p>
+        </div>
+      </div>
+      <div class="exp-short">
+        <img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_4_b10640f20b.webp" alt="الملاذ الهادئ" loading="lazy"/>
+        <div class="exp-overlay"></div>
+        <div class="exp-info">
+          <div class="exp-num">التجربة ٠٣</div>
+          <h3>الملاذ الهادئ</h3>
+          <p>مجمعات خاصة على الواجهة المائية لمن يبحث عن السكينة المطلقة.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO MOSAIC -->
+<section class="mosaic reveal" id="mosaic">
+  <div class="mosaic-hd">
+    <span class="s-label">٠٤ — معرض الصور</span>
+    <h2 class="s-title">اكتشف Creek View بصرياً</h2>
+  </div>
+  <div class="mosaic-grid">
+    <div class="mosaic-item mosaic-big"><img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_6_923d85d2a9.webp" loading="lazy" alt=""/></div>
+    <div class="mosaic-item" style="grid-row:span 2;aspect-ratio:auto"><img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_4_46706eb94f.webp" loading="lazy" alt="" style="height:100%;min-height:480px;object-fit:cover;width:100%;display:block"/></div>
+    <div class="mosaic-item mosaic-sq"><img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_5_8bc76f36cf.webp" loading="lazy" alt=""/></div>
+    <div class="mosaic-item mosaic-sq"><img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_7_f366ffe96b.webp" loading="lazy" alt=""/></div>
+    <div class="mosaic-item mosaic-wide" style="aspect-ratio:21/9"><img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_3_884687dd46.webp" loading="lazy" alt="" style="width:100%;height:100%;object-fit:cover;display:block"/></div>
+    <div class="mosaic-item mosaic-norm"><img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_4_b10640f20b.webp" loading="lazy" alt=""/></div>
+    <div class="mosaic-item mosaic-norm"><img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_6_d6c7f363ec.webp" loading="lazy" alt=""/></div>
+    <div class="mosaic-item mosaic-norm"><img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_3_884687dd46.webp" loading="lazy" alt=""/></div>
+  </div>
+</section>
+
+<!-- LIFESTYLE BANNER -->
+<div class="lifestyle">
+  <div class="lifestyle-bg"></div>
+  <div class="lifestyle-overlay"></div>
+  <div class="lifestyle-content">
+    <span class="s-label" style="justify-content:center;display:flex">رؤية تتحقق</span>
+    <h2 class="s-title">حيث يُشكّل الكريك يومك</h2>
+    <em class="pull-quote">"كل صباح يبدأ على ضفاف المياه"</em>
+    <p class="s-body">من نزهات الفجر على كورنيش الكريك إلى التجمعات الدافئة عند الغروب — الحياة في Creek View جميلة ولا تعجل.</p>
+  </div>
+</div>
+
+<!-- AMENITIES -->
+<section class="amenities reveal" id="amenities">
+  <div class="amenities-header">
+    <span class="s-label" style="display:flex;justify-content:center">٠٥ — المرافق والخدمات</span>
+    <h2 class="s-title" style="text-align:center">كل ما تحتاجه، في مكان واحد</h2>
+  </div>
+  <div class="amen-grid">
+    <div class="amen-card amen-card-wide"><img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_6_d6c7f363ec.webp" loading="lazy" alt=""/><div class="amen-overlay"></div><div class="amen-label"><h3>كورنيش الكريك</h3><p>ممشى ومسار دراجات بانورامي على طول الكريك</p></div></div>
+    <div class="amen-card"><img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_4_b10640f20b.webp" loading="lazy" alt=""/><div class="amen-overlay"></div><div class="amen-label"><h3>النادي الرياضي</h3><p>منشآت عالمية لجميع الرياضات</p></div></div>
+    <div class="amen-card"><img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_5_8bc76f36cf.webp" loading="lazy" alt=""/><div class="amen-overlay"></div><div class="amen-label"><h3>حمامات السباحة</h3><p>بإطلالة بانورامية على الكريك</p></div></div>
+    <div class="amen-card"><img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_7_f366ffe96b.webp" loading="lazy" alt=""/><div class="amen-overlay"></div><div class="amen-label"><h3>القرية التجارية</h3><p>مطاعم ومقاهي ومحلات متميزة</p></div></div>
+    <div class="amen-card amen-card-wide"><img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_3_884687dd46.webp" loading="lazy" alt=""/><div class="amen-overlay"></div><div class="amen-label"><h3>الحديقة المركزية</h3><p>مساحات خضراء مفتوحة في قلب المجتمع</p></div></div>
+  </div>
+</section>
+
+<!-- UNITS -->
+<section class="units reveal" id="units">
+  <span class="s-label" style="text-align:right">٠٦ — الوحدات السكنية</span>
+  <h2 class="s-title" style="text-align:right">اختر منزلك المثالي</h2>
+  <p class="s-body" style="text-align:right">ثلاثة أنواع سكنية مميزة، كل منها يقدم علاقة فريدة مع الكريك والمجتمع.</p>
+  <div class="units-grid">
+    <div class="unit-card">
+      <div class="unit-img"><img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_4_b10640f20b.webp" loading="lazy" alt=""/></div>
+      <div class="unit-body"><div class="unit-tag">النوع المميز</div><h3>فيلا الكريك</h3><p>فيلات مستقلة بحدائق خاصة وإطلالة مباشرة على الكريك.</p><div class="unit-specs"><div class="spec"><strong>320–500</strong>م²</div><div class="spec"><strong>4–5</strong>غرف</div><div class="spec"><strong>كريك</strong>إطلالة</div></div></div>
+    </div>
+    <div class="unit-card">
+      <div class="unit-img"><img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_5_8bc76f36cf.webp" loading="lazy" alt=""/></div>
+      <div class="unit-body"><div class="unit-tag">الأكثر طلباً</div><h3>تاون هاوس مزدوج</h3><p>منازل شبه مستقلة للعائلات التي تقدر الخصوصية والانتماء.</p><div class="unit-specs"><div class="spec"><strong>220–300</strong>م²</div><div class="spec"><strong>3–4</strong>غرف</div><div class="spec"><strong>حديقة</strong>إطلالة</div></div></div>
+    </div>
+    <div class="unit-card">
+      <div class="unit-img"><img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_7_f366ffe96b.webp" loading="lazy" alt=""/></div>
+      <div class="unit-body"><div class="unit-tag">يبدأ من</div><h3>تاون هاوس</h3><p>تاون هاوس عصرية تجمع بين التصميم الحديث ودفء الحي السكني.</p><div class="unit-specs"><div class="spec"><strong>160–220</strong>م²</div><div class="spec"><strong>3</strong>غرف</div><div class="spec"><strong>حديقة</strong>إطلالة</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY TRACK -->
+<section class="gallery reveal">
+  <div class="gallery-hd">
+    <span class="s-label">٠٧ — جولة بصرية</span>
+    <h2 class="s-title">الإطلالات التي تنتظرك</h2>
+  </div>
+  <div class="track-wrap"><div class="track">
+    <div class="gitem"><img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_4_b10640f20b.webp" loading="lazy" alt=""/></div>
+    <div class="gitem"><img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_5_8bc76f36cf.webp" loading="lazy" alt=""/></div>
+    <div class="gitem"><img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_7_f366ffe96b.webp" loading="lazy" alt=""/></div>
+    <div class="gitem"><img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_3_884687dd46.webp" loading="lazy" alt=""/></div>
+    <div class="gitem"><img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_6_d6c7f363ec.webp" loading="lazy" alt=""/></div>
+    <div class="gitem"><img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_4_46706eb94f.webp" loading="lazy" alt=""/></div>
+    <div class="gitem"><img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_6_923d85d2a9.webp" loading="lazy" alt=""/></div>
+    <div class="gitem"><img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_4_b10640f20b.webp" loading="lazy" alt=""/></div>
+    <div class="gitem"><img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_5_8bc76f36cf.webp" loading="lazy" alt=""/></div>
+    <div class="gitem"><img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_7_f366ffe96b.webp" loading="lazy" alt=""/></div>
+    <div class="gitem"><img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_3_884687dd46.webp" loading="lazy" alt=""/></div>
+    <div class="gitem"><img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_6_d6c7f363ec.webp" loading="lazy" alt=""/></div>
+    <div class="gitem"><img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_4_46706eb94f.webp" loading="lazy" alt=""/></div>
+    <div class="gitem"><img src="https://admin.mountainviewegypt.com/uploads/Creek_Views_LP_Visual_6_923d85d2a9.webp" loading="lazy" alt=""/></div>
+  </div></div>
+</section>
+
+<!-- MASTERPLAN -->
+<section class="masterplan reveal" id="masterplan">
+  <div class="masterplan-hd">
+    <span class="s-label" style="display:flex;justify-content:center">٠٨ — الموقع والمخطط العام</span>
+    <h2 class="s-title" style="text-align:center">أين ستجدنا</h2>
+    <p class="s-body" style="text-align:center;margin:0 auto;max-width:540px">موقع استراتيجي في التجمع الخامس، القاهرة الجديدة — على بُعد دقائق من المحاور الرئيسية وأفضل المدارس والمستشفيات.</p>
+  </div>
+  <img class="map-img" src="https://admin.mountainviewegypt.com/uploads/location_map_Landing_Page_Size_Creek_Views_5fd1ddf1ee.webp" alt="المخطط العام" loading="lazy"/>
+</section>
+
+<!-- REGISTER -->
+<section class="register reveal" id="register">
+  <div class="reg-bg"></div>
+  <div class="reg-ov"></div>
+  <div class="reg-content">
+    <span class="s-label">٠٩ — تواصل معنا</span>
+    <h2 class="s-title">سجّل اهتمامك الآن</h2>
+    <p class="s-body">كن أول من يحصل على الأسعار والمخططات والعروض الحصرية. سيتواصل معك فريق المبيعات خلال 24 ساعة.</p>
+    <div class="reg-form">
+      <div class="form-row">
+        <input class="field" id="f-firstname" type="text" placeholder="الاسم الأول" required/>
+        <input class="field" id="f-lastname" type="text" placeholder="اسم العائلة" required/>
+      </div>
+      <input class="field" id="f-email" type="email" placeholder="البريد الإلكتروني" required/>
+      <input class="field" id="f-phone" type="tel" placeholder="رقم الهاتف" required/>
+      <select class="field" id="f-interest">
+        <option value="" disabled selected>اهتمامك بـ</option>
+        <option>فيلا الكريك</option>
+        <option>تاون هاوس مزدوج</option>
+        <option>تاون هاوس</option>
+        <option>وحدة استثمارية</option>
+      </select>
+      <input class="field" id="f-source" type="text" placeholder="كيف عرفت عنا؟"/>
+      <button type="button" onclick="handleSubmit()" class="submit-btn" id="submit-btn">سجّل الآن ←</button>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT BAR -->
+<div class="contact-bar reveal">
+  <div class="cb-inner">
+    <div class="cb-item">
+      <div class="cb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.82a19.79 19.79 0 01-3.07-8.63A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
+      <div class="cb-text"><h4>اتصل بنا</h4><a href="tel:01095453622">01095453622</a></div>
+    </div>
+    <div class="cb-item">
+      <div class="cb-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
+      <div class="cb-text"><h4>واتساب</h4><a href="https://wa.me/201095453622" target="_blank" rel="noopener">تحدث مع المبيعات</a></div>
+    </div>
+    <div class="cb-item">
+      <div class="cb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+      <div class="cb-text"><h4>زورنا</h4><p>التجمع الخامس، القاهرة الجديدة</p></div>
+    </div>
+    <div class="cb-item">
+      <div class="cb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+      <div class="cb-text"><h4>مركز التجربة</h4><p>يومياً · 9 صباحاً – 8 مساءً</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand" style="text-align:right">
+      <img src="https://admin.mountainviewegypt.com/uploads/MV_Logo_White_72ad1e3de1.svg"
+           alt="Mountain View Egypt"
+           style="height:36px;width:auto;display:block;margin-right:0;margin-left:auto"
+           onerror="this.style.display='none'"/>
+      <p>Creek View — مجتمع سكني رائد من ماونتن فيو، الشركة الرائدة في تطوير وجهات المعيشة المتكاملة في مصر منذ 2005.</p>
+    </div>
+    <div class="footer-col">
+      <h4>الشركة</h4>
+      <ul>
+        <li><a href="https://mountainviewegypt.com/story" target="_blank" rel="noopener">قصتنا</a></li>
+        <li><a href="https://mountainviewegypt.com/sustainability" target="_blank" rel="noopener">الاستدامة</a></li>
+        <li><a href="https://mountainviewegypt.com/media-room" target="_blank" rel="noopener">المركز الإعلامي</a></li>
+        <li><a href="https://mountainviewegypt.com/careers" target="_blank" rel="noopener">الوظائف</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>المشاريع</h4>
+      <ul>
+        <li><a href="https://mountainviewegypt.com/projects/icity-new-cairo" target="_blank" rel="noopener">آي سيتي القاهرة الجديدة</a></li>
+        <li><a href="https://mountainviewegypt.com/projects/aliva" target="_blank" rel="noopener">أليفا</a></li>
+        <li><a href="https://mountainviewegypt.com/projects/icity-october" target="_blank" rel="noopener">آي سيتي أكتوبر</a></li>
+        <li><a href="https://kingsway.mountainviewegypt.com" target="_blank" rel="noopener">كينجزواي</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>تابعنا</h4>
+      <ul>
+        <li><a href="https://www.facebook.com/MountainViewEgypt/" target="_blank" rel="noopener">فيسبوك</a></li>
+        <li><a href="https://www.instagram.com/mountainview_egypt/" target="_blank" rel="noopener">إنستجرام</a></li>
+        <li><a href="https://www.linkedin.com/company/mountainvieweg/" target="_blank" rel="noopener">لينكد إن</a></li>
+        <li><a href="https://www.youtube.com/@MountainViewEGOfficial" target="_blank" rel="noopener">يوتيوب</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <a href="https://mountainviewegypt.com/privacy-policy" target="_blank" rel="noopener">سياسة الخصوصية</a>
+    <p>© 2026 ماونتن فيو مصر. جميع الحقوق محفوظة.</p>
+  </div>
+</footer>
+
+<!-- FLOAT BUTTONS -->
+<div class="float">
+  <a href="https://wa.me/201095453622" class="float-btn f-wa" target="_blank" rel="noopener">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    واتساب
+  </a>
+  <a href="tel:01095453622" class="float-btn f-ph">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.82a19.79 19.79 0 01-3.07-8.63A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+    اتصل بنا
+  </a>
+</div>
+
+</div><!-- /main-page -->
+
+
+<!-- ══════════════════════
+     THANK YOU PAGE
+══════════════════════ -->
+<div id="thankyou-page" class="page">
+  <div class="ty-bg"></div>
+  <div class="ty-overlay"></div>
+
+  <!-- Nav on TY page -->
+  <nav style="background:rgba(6,24,24,.98)">
+    <div class="nav-logo">
+      <img class="mv-logo-img"
+           src="https://admin.mountainviewegypt.com/uploads/MV_Logo_White_72ad1e3de1.svg"
+           alt="Mountain View Egypt"
+           onerror="this.onerror=null;this.src='https://mountainviewegypt.com/assets/images/logo-white.svg'"/>
+      <div class="nav-divider"></div>
+      <span class="nav-project-name">CREEK VIEW</span>
+    </div>
+    <button onclick="goBack()" class="nav-btn nav-btn-outline" style="border:1px solid rgba(91,188,188,.45)!important">← العودة للموقع</button>
+  </nav>
+
+  <div class="ty-content">
+    <div class="ty-card">
+
+      <!-- Logo inside card -->
+      <div class="ty-logo-wrap">
+        <img src="https://admin.mountainviewegypt.com/uploads/MV_Logo_White_72ad1e3de1.svg"
+             alt="Mountain View Egypt"
+             style="height:40px;width:auto;opacity:.85"
+             onerror="this.style.display='none'"/>
+      </div>
+
+      <!-- Checkmark -->
+      <div class="ty-check">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
+
+      <span class="ty-badge">تم التسجيل بنجاح ✓</span>
+      <h1 class="ty-title">شكراً لاهتمامك!</h1>
+      <p class="ty-subtitle">Creek View · Mountain View Egypt</p>
+      <p class="ty-body">استلمنا طلبك وسيتواصل معك أحد مستشاري المبيعات خلال <strong style="color:var(--teal-light)">24 ساعة</strong> لتزويدك بكافة التفاصيل والعروض الحصرية.</p>
+
+      <!-- Submitted data summary -->
+      <div class="ty-info-box" id="ty-summary"></div>
+
+      <!-- Promise strip -->
+      <div class="ty-promise">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <p>فريق المبيعات متاح <strong>يومياً من 9 صباحاً حتى 8 مساءً</strong> للإجابة على جميع استفساراتك.</p>
+      </div>
+
+      <!-- Actions -->
+      <div class="ty-actions">
+        <button onclick="goBack()" class="ty-back">← تصفح الموقع</button>
+        <a id="ty-wa-link" href="https://wa.me/201095453622" class="ty-wa" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          تواصل على واتساب
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div><!-- /thankyou-page -->
+
+
+<script>
+/* Scroll reveal */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(el => { if(el.isIntersecting) el.target.classList.add('visible'); });
+}, {threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+/* Page navigation */
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+}
+function goBack() { showPage('main-page'); }
+
+/* Form submit */
+function handleSubmit() {
+  const first    = document.getElementById('f-firstname').value.trim();
+  const last     = document.getElementById('f-lastname').value.trim();
+  const email    = document.getElementById('f-email').value.trim();
+  const phone    = document.getElementById('f-phone').value.trim();
+  const interest = document.getElementById('f-interest').value;
+  const source   = document.getElementById('f-source').value.trim();
+
+  if (!first || !last || !email || !phone) {
+    alert('يرجى تعبئة الحقول المطلوبة: الاسم، البريد الإلكتروني، ورقم الهاتف.');
+    return;
+  }
+
+  const btn = document.getElementById('submit-btn');
+  btn.textContent = 'جاري الإرسال…';
+  btn.disabled = true;
+
+  /* ── Send email via mailto ── */
+  const subject = encodeURIComponent('تسجيل اهتمام جديد – Creek View ماونتن فيو');
+  const body = encodeURIComponent(
+`═══════════════════════════════
+تسجيل اهتمام جديد – Creek View
+═══════════════════════════════
+
+الاسم الكامل  : ${first} ${last}
+البريد         : ${email}
+الهاتف         : ${phone}
+الاهتمام بـ   : ${interest || 'غير محدد'}
+مصدر التسجيل  : ${source   || 'غير محدد'}
+التاريخ        : ${new Date().toLocaleString('ar-EG')}
+
+═══════════════════════════════
+يرجى التواصل مع العميل في أقرب وقت.
+`);
+
+  window.open(`mailto:ahmed.azim.harb@gmail.com?subject=${subject}&body=${body}`, '_blank');
+
+  /* ── Fill TY summary ── */
+  const rows = [
+    ['الاسم الكامل', `${first} ${last}`],
+    ['البريد الإلكتروني', email],
+    ['رقم الهاتف', phone],
+    ['الاهتمام بـ', interest || '—'],
+  ];
+  document.getElementById('ty-summary').innerHTML = rows.map(([k,v]) =>
+    `<div class="ty-info-row"><span class="ty-info-key">${k}</span><span class="ty-info-val">${v}</span></div>`
+  ).join('');
+
+  /* ── Personalised WhatsApp link ── */
+  const waMsg = encodeURIComponent(`مرحباً، أنا ${first} ${last}. لقد سجلت اهتمامي بـ Creek View وأود الاستفسار عن المزيد.`);
+  document.getElementById('ty-wa-link').href = `https://wa.me/201095453622?text=${waMsg}`;
+
+  /* ── Navigate to TY page ── */
+  setTimeout(() => { showPage('thankyou-page'); btn.disabled = false; btn.textContent = 'سجّل الآن ←'; }, 600);
+}
+</script>
+</body>
+</html>
